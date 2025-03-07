@@ -15,13 +15,6 @@ def HelloWorld():
     print("hello world")
 ```
 
-**插入图片**
-
-![gpt执行结果](/assets/avatar.jpg)
-
-![gpt执行结果](/assets/avatar.jpg){: width="20" height="20" }{: .shadow }
-
-
 **提示信息**
 
 > An example showing the `tip` type prompt.
