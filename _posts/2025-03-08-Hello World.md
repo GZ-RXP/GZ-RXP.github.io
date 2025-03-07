@@ -1,9 +1,9 @@
- ---
- title: Hello World
- date: 2025-03-08 00:42:00 +0800
- categories: [Blog, Other]
- tags: [blog]
- ---
+---
+title: Hello World
+date: 2025-03-08 00:42:00 +0800
+categories: [Blog, Other]
+tags: [blog]
+---
 ## Hello World
 ### This blog is built with Jekyll
 #### Sub Title
