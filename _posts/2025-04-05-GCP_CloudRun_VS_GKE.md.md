@@ -47,6 +47,7 @@ mermaid: true
     traffic:
       - percent: 100
   ```
+  
 ### **场景2：机器学习推理服务（需要 GPU）**
 - **选择 GKE**
     - 创建带 GPU 的节点池，部署推理服务 Pod。
@@ -76,6 +77,7 @@ mermaid: true
         nodeSelector:
             cloud.google.com/gke-accelerator: nvidia-tesla-t4
     ```
+
 ### 选型决策树
 - 是否需要精细控制容器编排？
     - 是 → GKE
