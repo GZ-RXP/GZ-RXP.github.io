@@ -46,7 +46,7 @@ mermaid: true
                 cpu: 1000m
     traffic:
       - percent: 100
-    ```
+  ```
 ### **场景2：机器学习推理服务（需要 GPU）**
 - **选择 GKE**
     - 创建带 GPU 的节点池，部署推理服务 Pod。
