@@ -34,17 +34,17 @@ mermaid: true
     apiVersion: serving.knative.dev/v1
     kind: Service
     metadata:
-        name: promo-page
+      name: promo-page
     spec:
-        template:
-            spec:
-            containers:
-                - image: gcr.io/my-project/promo-app:v1
-                resources:
-                    limits:
-                        memory: 512Mi
-                        cpu: 1000m
-    traffic:
+      template:
+        spec:
+          containers:
+            - image: gcr.io/my-project/promo-app:v1
+              resources:
+                limits:
+                  memory: "512Mi"
+                  cpu: "1000m"
+      traffic:
         - percent: 100
     ```
   
