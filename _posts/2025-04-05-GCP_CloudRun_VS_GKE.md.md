@@ -54,28 +54,6 @@ mermaid: true
     - 使用 Horizontal Pod Autoscaler 根据负载扩缩 Pod。
     ```yaml
     # gke-deployment.yaml 示例
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-    name: ml-inference
-    spec:
-    replicas: 3
-    selector:
-        matchLabels:
-        app: ml-inference
-    template:
-        metadata:
-        labels:
-            app: ml-inference
-        spec:
-        containers:
-            - name: inference-container
-            image: gcr.io/my-project/ml-model:v2
-            resources:
-                limits:
-                nvidia.com/gpu: 1
-        nodeSelector:
-            cloud.google.com/gke-accelerator: nvidia-tesla-t4
     ```
 
 ### 选型决策树
