@@ -27,26 +27,26 @@ mermaid: true
 
 ### **场景1：电商促销页面（高波动流量）**
 - **选择 Cloud Run**  
-  - 突发流量时自动扩缩，空闲时缩容至零，节省成本。  
-  - 快速部署容器镜像，无需预置资源。  
-  ```yaml
-  # cloudrun.yaml 配置示例
-  apiVersion: serving.knative.dev/v1
-  kind: Service
-  metadata:
-    name: promo-page
-  spec:
-    template:
-      spec:
-        containers:
-          - image: gcr.io/my-project/promo-app:v1
-            resources:
-              limits:
-                memory: 512Mi
-                cpu: 1000m
+    - 突发流量时自动扩缩，空闲时缩容至零，节省成本。  
+    - 快速部署容器镜像，无需预置资源。  
+    ```yaml
+    # cloudrun.yaml 配置示例
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    metadata:
+        name: promo-page
+    spec:
+        template:
+            spec:
+            containers:
+                - image: gcr.io/my-project/promo-app:v1
+                resources:
+                    limits:
+                        memory: 512Mi
+                        cpu: 1000m
     traffic:
-      - percent: 100
-  ```
+        - percent: 100
+    ```
   
 ### **场景2：机器学习推理服务（需要 GPU）**
 - **选择 GKE**
@@ -54,6 +54,28 @@ mermaid: true
     - 使用 Horizontal Pod Autoscaler 根据负载扩缩 Pod。
     ```yaml
     # gke-deployment.yaml 示例
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: ml-inference
+    spec:
+    replicas: 3
+    selector:
+        matchLabels:
+        app: ml-inference
+    template:
+        metadata:
+        labels:
+            app: ml-inference
+        spec:
+        containers:
+            - name: inference-container
+            image: gcr.io/my-project/ml-model:v2
+            resources:
+                limits:
+                nvidia.com/gpu: 1
+        nodeSelector:
+            cloud.google.com/gke-accelerator: nvidia-tesla-t4
     ```
 
 ### 选型决策树
