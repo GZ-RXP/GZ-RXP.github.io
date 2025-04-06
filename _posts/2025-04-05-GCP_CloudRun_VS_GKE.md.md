@@ -39,39 +39,13 @@ mermaid: true
       template:
         spec:
           containers:
-            - image: gcr.io/my-project/promo-app:v1
+              image: gcr.io/my-project/promo-app:v1
               resources:
                 limits:
                   memory: "512Mi"
                   cpu: "1000m"
       traffic:
-        - percent: 100
-    ```
-    ```yaml
-    # cloudrun.yaml 配置示例
-    apiVersion: serving.knative.dev/v1
-    kind: Service
-    metadata:
-    name: promo-page
-    spec:
-    replicas: 3
-    selector:
-        matchLabels:
-        app: ml-inference
-    template:
-        metadata:
-        labels:
-            app: ml-inference
-        spec:
-        containers:
-            - name: inference-container
-            image: gcr.io/my-project/promo-app:v1
-            resources:
-                limits:
-                memory: "512Mi"
-                cpu: "1000m"
-        traffic:
-            - percent: 100
+          percent: 100
     ```
   
 ### **场景2：机器学习推理服务（需要 GPU）**
